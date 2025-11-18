@@ -47,4 +47,34 @@ SELECT * FROM staging.employees;
 UPDATE staging.employees
 SET employment_year = 2023
 WHERE employee_id IN (98,99);
---WHERE employee_id = 98 OR employee_id = 99; 
+--WHERE employee_id = 98 OR employee_id = 99;  
+
+
+/* ==============
+   DDL - ALTER
+   ============== */
+ALTER TABLE staging.employees 
+ADD COLUMN pension_plan VARCHAR DEFAULT 'plan 1';
+
+/* ==============
+   CRUD - UPDATE 
+   ============== */
+
+   UPDATE staging.employees
+   SET pension_plan = 'plan 2'
+   WHERE employment_year > 2015;
+
+
+/* ==============
+   CRUD - DELETE 
+   ============== */
+
+
+SELECT * 
+FROM staging.employees
+WHERE employee_id = 1; 
+
+
+DELETE 
+FROM staging.employees
+WHERE employee_id = 1;
